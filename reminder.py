@@ -6,8 +6,13 @@ today = datetime.date.today().isoformat()
 print(today)
 
 tasks = {
-    today: ["pythonの勉強", "ITパスポート勉強"]
+    today: []
 }
+while True:
+    task=input("予定を入力してください:")
+    if task == "終了":
+        break
+    tasks[today].append(task)
 with open("tasks.json", "w", encoding="utf-8") as f:
     json.dump(tasks,f,ensure_ascii=False)
 with open("tasks.json", "r", encoding="utf-8") as f:
